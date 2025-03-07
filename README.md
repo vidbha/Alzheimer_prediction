@@ -1,28 +1,114 @@
-This is a Django-based web application that leverages a machine learning model to predict whether a person is likely to be "Demented" or "Nondemented" based on various input parameters. The app uses a pre-trained SVM model along with a numerical transformer, which are both stored as pickle files.
+# Dementia Prediction Web Application 🧠
 
-Features
-User-Friendly Interface:
-A clean, responsive HTML form that collects user data such as gender, age, years of education, SES, MMSE, CDR, eTIV, nWBV, and ASF.
-Machine Learning Integration:
-Processes input data through a pre-trained machine learning model (SVM) to classify the prediction outcome.
-Easy Navigation:
-Simple URL routing using Django to switch between the data input page and the prediction result page.
-Technologies Used
+This is a **Django-based web application** that leverages a **machine learning model** to predict whether a person is likely to be **Demented** or **Nondemented** based on various input parameters. The app integrates a **pre-trained SVM model** along with a numerical transformer, both stored as **pickle files** for efficient prediction.
 
-Python & Django
-NumPy
-Scikit-Learn
-Pickle (for model persistence)
+---
 
-Input Features
-1. EDUC –Denotes the years of education of the person.
-2. SES - It combines both economic and sociological factors to assess an individual's or family's access to financial resources and their social standing relative to others.
-   1 – middle
-   2 – middle
-   3 – high
-   4 – prestige
-3. MMSE – A type of Brain activity Examination, introduced by Folstein in 1975, serves as a straightforward assessment of brain functions. This test has the highest score of 30 points and evaluates aspects such as time orientation, concentration, memory recall, language capabilities, visuospatial skills, and comprehension of instructions. A score below 23 points is considered a benchmark indicating the pre-sence of dementia.
-4. CDR – It is a 5-point rating system that categorizes six domains of Brain abilities in AD on a 5-point scale. Those domains are Recall, judgment and problem-solving ability, public relations, lifestyles, and personal caring style. Rating is given based on the interview taken of the patient to gather reliable information related to brain performance. A score of 0.0 indicates no impairment, 0.5 suggests questionable im-pairment, 1.0 denotes moderate impairment, and 3 signifies severe impairment.
-5. eTIV –Intracranial volume (ICV) is an important normalization measure that de-notes the total volume inside the cranial cavity, encompassing the brain, meninges, and cerebrospinal fluid It is usually measured with an MRI in milliliters.
-6. nWBV – Represents the entirety of the brain structure volume.
-7. ASF – Atlas Scaling Factor: Atlas scaling factor is an atlas normalization in which the whole brain is analyzed for its size, shape, and relation between shapes. Here atlas represents an appropriate target This calculation involves referencing the total intracranial volume measurement. The volume scaling factor should match each in-dividual's total intracranial volume to the atlas target calculate
+## 🚀 Features
+
+### ✅ **User-Friendly Interface**
+- A clean, **responsive HTML form** to collect user input (e.g., age, education, brain activity scores, etc.).
+
+### 🤖 **Machine Learning Integration**
+- Uses a **pre-trained SVM model** to classify whether the person is demented or nondemented.
+
+### 🔄 **Easy Navigation**
+- Django's URL routing allows users to **switch seamlessly** between the input form and the prediction results.
+
+---
+
+## 🔧 Technologies Used
+- **Python & Django** (Web framework)
+- **NumPy** (Numerical processing)
+- **Scikit-Learn** (Machine learning)
+- **Pickle** (Model persistence)
+
+---
+
+## 📊 Input Features
+The model uses the following **medical and cognitive features** for prediction:
+
+| Feature | Description |
+|---------|-------------|
+| **EDUC** | Years of education |
+| **SES** | Socioeconomic status (1 - Middle, 2 - Middle, 3 - High, 4 - Prestige) |
+| **MMSE** | Brain activity examination (Score ≤ 23 suggests dementia) |
+| **CDR** | Cognitive impairment rating (0.0 - No impairment, 3 - Severe impairment) |
+| **eTIV** | Estimated total intracranial volume (measured in milliliters) |
+| **nWBV** | Normalized whole brain volume |
+| **ASF** | Atlas Scaling Factor (Brain shape and volume reference) |
+
+---
+
+## 📂 Directory Structure
+
+```
+├── dementia_prediction/        # Main Django project folder
+│   ├── settings.py            # Django settings
+│   ├── urls.py                # URL routing
+│   ├── views.py               # Handles form submission and prediction
+│   ├── models.py              # Django model definitions (if applicable)
+│   ├── templates/             # HTML templates for UI
+│   │   ├── index.html         # User input form
+│   │   ├── result.html        # Prediction results page
+│   ├── static/                # CSS and JS files
+│
+├── svm_model.pkl              # Pre-trained SVM model (Pickle file)
+├── transformer.pkl            # Pre-trained numerical transformer (Pickle file)
+├── requirements.txt           # Dependencies list
+├── manage.py                  # Django project management file
+```
+
+---
+
+## 🛠 Installation & Setup
+
+### **1️⃣ Install Dependencies**
+Ensure you have **Python 3.x** installed. Install required packages using:
+```bash
+pip install -r requirements.txt
+```
+
+### **2️⃣ Run the Django Server**
+Start the web application:
+```bash
+python manage.py runserver
+```
+Visit **[http://127.0.0.1:8000/](http://127.0.0.1:8000/)** in your browser to access the app.
+
+---
+
+## 🔍 Usage
+### **1️⃣ Enter Patient Data**
+- Fill in details like **age, education, SES, MMSE, CDR, eTIV, nWBV, and ASF**.
+
+### **2️⃣ Submit & Get Prediction**
+- Click **Predict** to process the input through the **SVM model** and receive the **Demented / Nondemented** classification.
+
+---
+
+## 🧠 Machine Learning Model
+- **Model Used**: **Support Vector Machine (SVM)**
+- **Preprocessing**: Numerical transformations stored in `transformer.pkl`.
+- **Prediction**: Model takes in preprocessed data and outputs `Demented` or `Nondemented`.
+
+---
+
+## 🔮 Future Enhancements
+- **Deep Learning Model**: Implement **Neural Networks** for improved accuracy.
+- **Better UI/UX**: Add interactive visualizations for data analysis.
+- **Deployment**: Deploy to **AWS/GCP** using Docker.
+
+---
+
+## 🤝 Contributing
+Feel free to **fork**, **contribute**, and **submit pull requests**! 😊
+
+---
+
+## 📜 License
+This project is open-source and available under the **MIT License**.
+
+---
+
+### ⭐ **Star this repo if you found it useful!** ⭐
