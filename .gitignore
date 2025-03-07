@@ -1,0 +1,13 @@
+# Python cache and compiled files
+__pycache__/
+*.pyc
+
+# Django specific
+db.sqlite3
+
+# Environment files (if any)
+*.env
+
+# OS generated files
+Thumbs.db
+.DS_Store
