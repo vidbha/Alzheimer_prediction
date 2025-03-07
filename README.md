@@ -61,14 +61,6 @@ The model uses the following **medical and cognitive features** for prediction:
 
 ---
 
-## 🛠 Installation & Setup
-
-### **1️⃣ Install Dependencies**
-Ensure you have **Python 3.x** installed. Install required packages using:
-```bash
-pip install -r requirements.txt
-```
-
 ### **2️⃣ Run the Django Server**
 Start the web application:
 ```bash
@@ -99,16 +91,4 @@ Visit **[http://127.0.0.1:8000/](http://127.0.0.1:8000/)** in your browser to ac
 - **Better UI/UX**: Add interactive visualizations for data analysis.
 - **Deployment**: Deploy to **AWS/GCP** using Docker.
 
----
 
-## 🤝 Contributing
-Feel free to **fork**, **contribute**, and **submit pull requests**! 😊
-
----
-
-## 📜 License
-This project is open-source and available under the **MIT License**.
-
----
-
-### ⭐ **Star this repo if you found it useful!** ⭐
