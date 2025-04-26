@@ -10,7 +10,7 @@ This is a **Django-based web application** that leverages a **machine learning m
 - A clean, **responsive HTML form** to collect user input (e.g., age, education, brain activity scores, etc.).
 
 ### 🤖 **Machine Learning Integration**
-- Uses a **=SVM model** to classify whether the person is demented or nondemented.
+- Uses a **SVM model** to classify whether the person is demented or nondemented.
 
 ### 🔄 **Easy Navigation**
 - Django's URL routing allows users to **switch seamlessly** between the input form and the prediction results.
@@ -53,8 +53,8 @@ The model uses the following **medical and cognitive features** for prediction:
 │   │   ├── result.html        # Prediction results page
 │   ├── static/                # CSS and JS files
 │
-├── svm_model.pkl              # Pre-trained SVM model (Pickle file)
-├── transformer.pkl            # Pre-trained numerical transformer (Pickle file)
+├── svm_model.pkl              # trained SVM model (Pickle file)
+├── transformer.pkl            # numerical transformer (Pickle file)
 ├── requirements.txt           # Dependencies list
 ├── manage.py                  # Django project management file
 ```
