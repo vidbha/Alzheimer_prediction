@@ -85,6 +85,9 @@ Visit **[http://127.0.0.1:8000/](http://127.0.0.1:8000/)** in your browser to ac
 - **Prediction**: Model takes in preprocessed data and outputs `Demented` or `Nondemented`.
 
 ---
+##  Demo Pictures
+ ![image](https://github.com/user-attachments/assets/0eb2988f-cd81-4934-9250-616fa7c289bd)
+![image](https://github.com/user-attachments/assets/cedd1ada-deaf-4eee-9903-44200c604452)
 
 ## 🔮 Future Enhancements
 - **Deep Learning Model**: Implement **Neural Networks** for improved accuracy.
