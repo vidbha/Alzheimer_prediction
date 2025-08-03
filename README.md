@@ -53,8 +53,6 @@ The model uses the following **medical and cognitive features** for prediction:
 │   │   ├── result.html        # Prediction results page
 │   ├── static/                # CSS and JS files
 │
-├── svm_model.pkl              # trained SVM model (Pickle file)
-├── transformer.pkl            # numerical transformer (Pickle file)
 ├── requirements.txt           # Dependencies list
 ├── manage.py                  # Django project management file
 ```
