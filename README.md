@@ -56,16 +56,6 @@ The model uses the following **medical and cognitive features** for prediction:
 ├── requirements.txt           # Dependencies list
 ├── manage.py                  # Django project management file
 ```
-
----
-
-### **2️⃣ Run the Django Server**
-Start the web application:
-```bash
-python manage.py runserver
-```
-Visit **[http://127.0.0.1:8000/](http://127.0.0.1:8000/)** in your browser to access the app.
-
 ---
 
 ## 🔍 Usage
