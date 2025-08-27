@@ -17,4 +17,4 @@ Thumbs.db
 .DS_Store
 
 # Model files (pickled ML models)
-webapp/Alzheimers_project/Alzheimers_detection/*.pkl
+webapp/Alzheimers_project/*.pkl
