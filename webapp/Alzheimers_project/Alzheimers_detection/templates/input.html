@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer's Prediction App</title>
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070'); /* A subtle medical background */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Form Container */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #005f73;
+            margin-bottom: 25px;
+        }
+
+        /* Form Group for each input */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #003e4d;
+            cursor: help; /* Indicates more info on hover */
+        }
+
+        /* Input Field Styles */
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="number"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #0077b6;
+            box-shadow: 0 0 8px rgba(0, 119, 182, 0.2);
+        }
+
+        /* Helper text style */
+        .helper-text {
+            font-size: 0.85em;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        /* Radio button styling */
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        /* Button Container & Styles */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex-grow: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button[type="submit"] {
+            background-color: #0077b6;
+            color: white;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #005f73;
+            transform: translateY(-2px);
+        }
+        
+        button[type="reset"] {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #bdbdbd;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Alzheimer's Prediction App</h1>
+        <form action="/predict/" method="get">
+
+            <div class="form-group">
+                <label title="Select the patient's biological sex.">Gender</label>
+                <div class="radio-group">
+                    <label for="male"><input type="radio" id="male" name="gender" value="M" required> Male</label>
+                    <label for="female"><input type="radio" id="female" name="gender" value="F"> Female</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="age" title="Enter the patient's age in years.">Age</label>
+                <input type="number" id="age" name="Age" placeholder="e.g., 75" min="59" max="99" required>
+                <p class="helper-text">Enter an age between 59 and 99.</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="educ" title="Enter the total number of years the patient has spent in formal education.">Years of Education (EDUC)</label>
+                <input type="number" id="educ" name="EDUC" placeholder="e.g., 16" min="0" max="30" required>
+                <p class="helper-text">Enter the total years of schooling.</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="ses" title="A rating based on the patient's occupational and educational background.">Socio-Economic Status (SES)</label>
+                <input type="number" id="ses" name="SES" placeholder="e.g., 2" min="1" max="4">
+                <p class="helper-text">Enter a value: 1 (Low), 2 (Middle), 3 (High), or 4 (Prestige). Leave blank if unknown.</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="mmse" title="A 30-point test assessing cognitive functions like memory, attention, and language. A lower score indicates greater impairment.">Mini-Mental State Examination (MMSE)</label>
+                <input type="number" id="mmse" name="MMSE" placeholder="e.g., 28" min="0" max="30" required>
+                <p class="helper-text">Enter the score from 0 to 30. Scores below 23 may indicate dementia.</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="cdr" title="A 5-point scale that rates the severity of dementia symptoms based on cognitive and functional performance.">Clinical Dementia Rating (CDR)</label>
+                <input type="text" inputmode="decimal" id="cdr" name="CDR" placeholder="e.g., 0.5" required>
+                <p class="helper-text">Enter a value: 0 (None), 0.5 (Questionable), 1.0 (Mild), 2.0 (Moderate), 3.0 (Severe).</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="etiv" title="An estimate of the total volume within the cranial cavity, used to normalize brain volume measurements.">Estimated Total Intracranial Volume (eTIV)</label>
+                <input type="number" id="etiv" name="eTIV" placeholder="e.g., 1500" min="1000" max="2100" required>
+                <p class="helper-text">Typically ranges from 1100 to 2000.</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="nwbv" title="The total volume of the brain, normalized by the intracranial volume (eTIV) to account for differences in head size.">Normalized Whole Brain Volume (nWBV)</label>
+                <input type="text" inputmode="decimal" id="nwbv" name="nWBV" placeholder="e.g., 0.720" required>
+                <p class="helper-text">Enter a decimal value, typically between 0.6 and 0.9.</p>
+            </div>
+
+            <div class="form-group">
+                <label for="asf" title="A scaling factor used to standardize an individual's brain volume to a standard anatomical template (atlas).">Atlas Scaling Factor (ASF)</label>
+                <input type="text" inputmode="decimal" id="asf" name="ASF" placeholder="e.g., 1.150" required>
+                <p class="helper-text">Enter a decimal value, typically between 0.8 and 1.6.</p>
+            </div>
+            
+            <div class="button-container">
+                <button type="reset">Reset Form</button>
+                <button type="submit">Predict</button>
+            </div>
+            
+        </form>
+    </div>
+</body>
+</html>

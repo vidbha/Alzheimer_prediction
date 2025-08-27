@@ -1,0 +1,20 @@
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django specific
+db.sqlite3
+
+# Virtual environment
+venv/
+.env/
+*.env
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# Model files (pickled ML models)
+webapp/Alzheimers_project/Alzheimers_detection/*.pkl
