@@ -3,7 +3,8 @@
 This is a **Django-based web application** that leverages a **machine learning model** to predict whether a person is likely to be **Demented** or **Nondemented** based on various input parameters. The app integrates a **pre-trained XGboost model** along with a numerical transformer, both stored as **pickle files** for efficient prediction.
 
 ---
-
+## Demo Links
+https://alzheimer-prediction-app.onrender.com
 ## 🚀 Features
 
 ### ✅ **User-Friendly Interface**
